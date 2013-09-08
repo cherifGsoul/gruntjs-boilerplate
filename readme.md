@@ -1,1 +1,1 @@
-My gruntjs project boilerplate use it if you want
+My GruntJS project boilerplate use it if you want
