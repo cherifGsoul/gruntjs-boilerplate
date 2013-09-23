@@ -11,33 +11,34 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-		less: {
-			development: {
+		recess: {
+			dist: {
+				options: {
+					compile: true
+				},
 				files: {
-					"css/style.css": "less/style.less"
+					'css/style.css': ['less/style.less']
 				}
 			}
 		},
 		watch: {
 			styles: {
-				files: ['less/**/*.less'],
-				tasks: ['less']
-			},
-			livereload: {
+				files: ['less/*.less'],
+				tasks: ['recess'],
 				options: {
-					livereload: true
-				},
-				files: ['less/**/*'],
-			},
-
+			        livereload: true,
+      			},
+			}
 		}
 	});
 
 	// Load plugins
-	grunt.loadNpmTasks('grunt-contrib-less');
+	// grunt.loadNpmTasks('grunt-contrib-less');
+	grunt.loadNpmTasks('grunt-recess');
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
-	grunt.registerTask('less', ['watch:styles']);
+	
 	grunt.registerTask('default', ['connect']);
+	// grunt.registerTask('watch', ['watch:styles']);
 }
